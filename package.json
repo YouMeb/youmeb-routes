@@ -1,0 +1,15 @@
+{
+  "name": "youmeb-routes",
+  "version": "0.0.0",
+  "description": "寫到 namespace",
+  "main": "./lib/routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "routes",
+    "express"
+  ],
+  "author": "Po-Ying Chen <poying.me@gmail.com>",
+  "license": "MIT"
+}
