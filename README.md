@@ -1,28 +1,65 @@
 # youmeb-routes
 
-## 範例 app
+A simple routing module for express.js.
+
+## Example app
 
 [youmeb-routes-example-app](https://github.com/YouMeb/youmeb-routes-example-app)
 
-## 範例
+    git clone git://github.com/YouMeb/youmeb-routes-example-app
+    cd youmeb-routes-example-app
+    npm install
+    node app.js
 
-    var Routes = require('youmeb-routes');
+## Controller example
 
-    //...
+    module.exports = function () {
+      
+      this.$({
+        name: 'controllerName',   // default: [filename]
+        path: '/example'          // default: ''
+      });
 
-    var app = express();
-    
-    Routes.create(app)
-      // 放 controller 的目錄，可以有多個目錄
-      // 目錄下的 index 檔案用來設定一整個目錄
-      // 像是 admin 這個目錄我就可以在他的 index 設定 {path: '/admin'}
-      // 他會直接套用到 admin 下所有的 controller
-      .source(path.join(__dirname, 'controllers'))
+      this.index = {
+        name: '',                               // default: 'index'
+        path: '/',                              // default: '/'
+        middlewares: ['middlewareName'],        // default: []
+        handler: function (req, res, next) {
+          //...
+        }
+      };
+
+    };
+
+## Generate routes
+
+    Routes.create(app)  // or (new Routes(app))
+      .source(path.join(__dirname, 'controllers-folder-1'))
+      .source(path.join(__dirname, 'controllers-folder-2'))
       .generate(function (err) {
         if (err) {
           return console.error(err);
         }
-        http.createServer(app).listen(app.get('port'), function () {
-          console.log('Express server listening on port ' + app.get('port'));
-        });
+        // create server
       });
+
+## Generate a URL in controller
+
+    req.$routes.generateUrl('routeName', {
+      param1: '...',
+      param2: '...'
+    });
+
+## Generate a URL in view
+
+    path('routeName', {})
+
+## Define a middleware
+
+    routes.defineMiddleware('middlewareName', function () {});
+
+## License
+
+(The MIT License)
+
+Copyright (c) 2013 YouMeb and contributors.
