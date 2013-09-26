@@ -1,6 +1,6 @@
 {
   "name": "youmeb-routes",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "A simple routing module for express.js.",
   "main": "./lib/routes.js",
   "scripts": {
