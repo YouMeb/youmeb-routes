@@ -1,5 +1,7 @@
 # youmeb-routes
 
+[![Build Status](https://secure.travis-ci.org/YouMeb/youmeb-routes.png)](http://travis-ci.org/YouMeb/youmeb-routes)
+
 A simple routing module for express.js.
 
 ## Example app
